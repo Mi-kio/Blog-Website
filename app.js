@@ -18,28 +18,36 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 app.listen(3000, function() {
   console.log("Server started on port 3000");
+ 
 });
 
 
-
-
 app.get("/",function(req,res){
-  res.render(__dirname + '/views/home.ejs');
+  console.log(res.status);
 
+  // res.render(__dirname + '/views/home.ejs');
   res.render("home", {homecontent:homeStartingContent});
 
+});
+
+app.get("/compose",function(req,res){
+  res.render("compose");
+
 })
+
+app.get("/about",function(req,res){
+// res.render(__dirname+'/views/about.ejs');
+res.render("about",{aboutcontent:aboutContent});
+});
+
+app.get("/contact",function(req,res){
+  // res.render(__dirname+'/views/contact.ejs');
+  res.render("contact",{contactcontent:contactContent});
+})
+
+app.post("/compose",function(req,res){
+console.log(req.body.postTitle);
+console.log(req.body.postContent);
+});
