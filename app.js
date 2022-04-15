@@ -28,12 +28,13 @@ app.listen(3000, function() {
 
 
 app.get("/",function(req,res){
-  console.log(res.status);
-
+ 
+  let blog = blogpost;
   // res.render(__dirname + '/views/home.ejs');
-  res.render("home", {homecontent:homeStartingContent});
-  console.log(blogpost)
-
+  res.render("home", {homecontent:homeStartingContent,
+    b:blog
+  });
+  
 });
 
 app.get("/compose",function(req,res){
