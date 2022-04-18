@@ -6,8 +6,8 @@
 
  <% b.forEach(function(i){ %>
   <h1><%= i.t %></h1>
-  <p><%= i.p.substring(0,100)+"..." %></p>
-
-    <% })  %>
+  <p><%=i.p.substring(0,100)+"..."%>
+     <a href = "/posts/<%=i.t%>">Read more</a>%></p>
+  <% })  %>
 
 <%-include ./partials/footer -%>
