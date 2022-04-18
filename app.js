@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+var _ = require('lodash');
 
 
 
@@ -25,6 +26,7 @@ app.listen(3000, function() {
   console.log("Server started on port 3000");
  
 });
+
 
 
 app.get("/",function(req,res){
@@ -63,4 +65,21 @@ blogpost.push(postBody);
 
 res.redirect("/");
 });
+
+app.get("/posts/:postName",function(req,res){
+const title = _.lowerCase(req.params.postName);
+
+blogpost.forEach(function(i){
+  const pt = _.lowerCase(i.t);
+  if(pt === title){
+    res.render("post",{
+      pt:i.t,
+      content:i.p
+    });
+
+  }
+  console.log(res.statusCode);
+});
+});
+
 
