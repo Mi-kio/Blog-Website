@@ -9,6 +9,11 @@
 
 ## A blogging website to add blogs
 
+## Upcoming changes
+- Login Authentication
+- Options to delete, update and rename blogs
+- Change UI
+
 ## Tech Stack Used
 
 - HTML and CSS
